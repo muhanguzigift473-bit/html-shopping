@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeloCity | Premium Urban Apparel & Gear</title>
+    <!-- Lightweight, modern CSS library for clean styling -->
+    <link rel="stylesheet" href="https://jsdelivr.net">
+    <style>
+        :root {
+            --primary-accent: #0071e3;
+            --primary-hover: #005bb5;
+            --success-color: #34c759;
+        }
+        body { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        /* Layout Header */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .brand-logo { font-size: 1.8rem; font-weight: 800; letter-spacing: -1px; text-decoration: none; color: inherit; }
+        .brand-logo span { color: var(--primary-accent); }
+        nav a { margin-left: 20px; font-weight: 600; text-decoration: none; color: inherit; }
+        nav a:hover { color: var(--primary-accent); }
+        
+        /* Hero Section */
+        .hero-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; padding: 3rem 2rem; background: rgba(0, 113, 227, 0.05); border-radius: 16px; margin-bottom: 3rem; }
+        .hero-text h1 { font-size: 2.8rem; line-height: 1.1; margin-bottom: 15px; }
+        .hero-text p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 25px; }
+        .hero-image img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); object-fit: cover; height: 320px; }
+        .hero-banner button { background-color: var(--primary-accent); color: white; border: none; padding: 14px 28px; font-size: 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .hero-banner button:hover { background-color: var(--primary-hover); }
+        
+        /* Product Showcase Layout */
+        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 4rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
+        .product-card { border: 1px solid rgba(0,0,0,0.1); padding: 15px; border-radius: 12px; background: rgba(255,255,255,0.02); display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: transform 0.2s; }
+        .product-card:hover { transform: translateY(-4px); }
+        .product-card img { width: 100%; height: 260px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+        .tag { position: absolute; top: 25px; left: 25px; background: var(--success-color); color: white; padding: 4px 10px; font-size: 0.75rem; font-weight: bold; border-radius: 20px; }
+        .product-info h3 { margin: 5px 0; font-size: 1.1rem; }
+        .product-info p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; min-height: 40px; }
+        .product-action { display: flex; justify-content: space-between; align-items: center; }
+        .product-price { font-size: 1.3rem; font-weight: 700; }
+        .btn-add { padding: 8px 16px; font-size: 0.9rem; background: transparent; border: 2px solid var(--primary-accent); color: var(--primary-accent); font-weight: 600; }
+        .btn-add:hover { background: var(--primary-accent); color: white; }
+        
+        /* Sticky Cart Overlay */
+        .sticky-cart { position: fixed; bottom: 30px; right: 30px; background: #1d1d1f; color: white; padding: 15px 30px; border-radius: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); font-weight: 600; cursor: pointer; z-index: 2000; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s ease; }
+        .sticky-cart:hover { transform: scale(1.05); background: #000; }
+        
+        /* Benefits Layout */
+        .benefits-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; text-align: center; margin: 4rem 0; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 12px; }
+        .benefit-item h4 { margin: 10px 0 5px 0; font-size: 1.1rem; }
+        .benefit-item p { font-size: 0.85rem; margin: 0; opacity: 0.8; }
+        
+        footer { text-align: center; padding: 3rem 0; margin-top: 5rem; border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.85rem; opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="#" class="brand-logo">Velo<span>City</span></a>
+        <nav>
+            <a href="#catalog">Shop Catalog</a>
+            <a href="#perks">Why Us</a>
+            <a href="#newsletter">Join Community</a>
+        </nav>
+    </header>
+    <hr>
+
+    <!-- Interactive Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-text">
+            <h1>Engineered for the Modern Explorer</h1>
+            <p>Discover high-performance urban wear and modular technical accessories designed to adapt to heavy environments seamlessly.</p>
+            <button onclick="scrollToCatalog()">Explore New Arrivals</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://unsplash.com" alt="Premium Tech Gear">
+        </div>
+    </section>
+
+    <!-- Global Value Perks -->
+    <div id="perks" class="benefits-bar">
+        <div class="benefit-item">
+            <div style="font-size: 2rem;">✈️</div>
+            <h4>Express Worldwide Shipping</h4>
+            <p>Free custom handling tracking on all retail orders exceeding $150.</p>
+        </div>
+        <div class="benefit-item">
+            <div style="font-size: 2rem;">🛡️</div>
+            <h4>2-Year Shield Guarantee</h4>
+            <p>Complete structural insurance parameters against design or material defects.</p>
+        </div>
+        <div class="benefit-item">
+            <div style="font-size: 2rem;">🔄</div>
+            <h4>30-Day Hassle-Free Returns</h4>
+            <p>Not the perfect physical variant fit? Ship it back to us without friction.</p>
+        </div>
+    </div>
+
+    <!-- Active Inventory Catalog -->
+    <div id="catalog" class="section-header">
+        <h2>Trending Hardware &amp; Apparel</h2>
+        <p style="margin: 0; opacity: 0.7;">Showing 3 of 48 items available</p>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product Card 1 -->
+        <div class="product-card">
+            <span class="tag">Best Seller</span>
+            <div>
+                <img src="https://unsplash.com" alt="Waterproof Pack">
+                <div class="product-info">
+                    <h3>Apex Modular 35L Backpack</h3>
+                    <p>Ballistic nylon exterior coating featuring magnetic closures and a floating 16" laptop sleeve compartment.</p>
+                </div>
+            </div>
+            <div class="product-action">
+                <span class="product-price">$189.00</span>
+                <button class="btn-add" onclick="updateCartTotal('Apex Modular Backpack', 189.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card">
+            <div>
+                <img src="https://unsplash.com" alt="Chronograph Watch">
+                <div class="product-info">
+                    <h3>Quantum Chrono Watch</h3>
+                    <p>Titanium chassis construct running stealth solar movements with integrated tracking metric scales.</p>
+                </div>
+            </div>
+            <div class="product-action">
+                <span class="product-price">$310.00</span>
+                <button class="btn-add" onclick="updateCartTotal('Quantum Chrono Watch', 310.00)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card">
+            <span class="tag">New Choice</span>
+            <div>
+                <img src="https://unsplash.com" alt="All-Weather Sneakers">
+                <div class="product-info">
+                    <h3>Stratus All-Weather Trainer</h3>
+                    <p>Breathable responsive knit base layered onto a high-traction rubber footprint tread for total stability.</p>
+                </div>
+            </div>
+            <div class="product-action">
+                <span class="product-price">$145.00</span>
+                <button class="btn-add" onclick="updateCartTotal('Stratus Trainers', 145.00)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Community Retention Pipeline -->
+    <h2 id="newsletter" style="text-align: center; margin-top: 5rem;">Unlock Insider Network Priority</h2>
+    <p style="text-align: center; max-width: 600px; margin: 0 auto 20px auto;">Subscribe to receive drops regarding limited item allocations, exclusive designer collection previews, and seasonal discount keys directly.</p>
+    
+    <form onsubmit="handleRegistration(event)" style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px; align-items: center;">
+        <input type="email" id="subscriberEmail" placeholder="Enter your email address..." required style="margin: 0; flex-grow: 1;">
+        <button type="submit" style="background-color: var(--primary-accent); color: white; margin: 0; white-space: nowrap;">Join System</button>
+    </form>
+
+    <!-- Floating Structural Checkout Tracker -->
+    <div class="sticky-cart" id="checkoutCart" onclick="triggerCheckoutAlert()">
+        👜 Checkout Basket (<span id="countDisplay">0</span>) | <span id="totalDisplay">$0.00</span>
+    </div>
+
+    <!-- Standard Site Map Footer -->
+    <footer>
